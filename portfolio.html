@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Даниил Жарков - Веб-разработчик</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        nav {
+            background: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin: 0 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--light-color);
+            text-decoration: underline;
+        }
+        
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .portfolio-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            background: white;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            margin-top: 0;
+            color: var(--dark-color);
+            font-size: 1.4rem;
+        }
+        
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tag {
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Даниил Жарков</h1>
+            <p>Веб-разработчик</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="portfolio.html" class="active">Портфолио</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="portfolio-header">
+            <h1>Мои работы</h1>
+            <p>Здесь представлены мои последние проекты.</p>
+        </section>
+
+
+
+        <div class="portfolio-grid">
+            <!-- Проект 1 -->
+            <div class="portfolio-item" data-category="fullstack,ecommerce">
+                <div class="portfolio-img">
+                    <img src="umn.png" alt="Умножение">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Тренажер по умножению</h3>
+                    <p></p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">HTML</span>
+                        <span class="portfolio-tag">CSS</span>
+                        <span class="portfolio-tag">JavaScript</span>
+    
+                    </div>
+                    <a href="temp/index.html" class="btn">Тренировать умножение</a>
+            
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="portfolio-item" data-category="frontend">
+                <div class="portfolio-img">
+                    <img src="sl.png" alt="Сложение">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Тренажер по сложению</h3>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">HTML</span>
+                        <span class="portfolio-tag">CSS</span>
+                        <span class="portfolio-tag">JavaScript</span>
+                    </div>
+                    <a href="temp/index911.html" class="btn">Тренировать сложение</a>
+                </div>
+            </div>
+
+            <!-- Проект 3 -->
+            <div class="portfolio-item" data-category="backend">
+                <div class="portfolio-img">
+                    <img src="kr.png" alt="Контрольная работа по умножению">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Контрольная работа по умножению</h3>
+              
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">HTML</span>
+                        <span class="portfolio-tag">CSS</span>
+                        <span class="portfolio-tag">JavaScript</span>
+                    </div>
+                    <a href="temp/index01.html" class="btn">Написать контрольную работу</a>
+                </div>
+            </div>
+
+            
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Даниил Жарков</h3>
+                <p>Веб-разработчик</p>
+                <div class="social-links">
+                    <a href="https://github.com/mr-daniil" target="_blank" style="color: #e8491d;">GitHub</a> | 
+                    <a href="https://vk.com/mr_zharik" target="_blank" style="color: #e8491d;">ВКонтакте</a> | 
+                    <a href="https://instagram.com/mr_zharik" target="_blank" style="color: #e8491d;">Instagram</a>
+                </div>
+                <p>© 2025 Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Фильтрация проектов
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем active у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем active текущей кнопке
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
