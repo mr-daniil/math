@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги | Даниил Жарков - Веб-разработчик</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        nav {
+            background: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin: 0 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--light-color);
+            text-decoration: underline;
+        }
+        
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .services-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .services-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2rem;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            text-align: center;
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card ul {
+            padding-left: 1.5rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .btn {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            padding: 0.8rem;
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        .faq-section {
+            margin-top: 4rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Даниил Жарков</h1>
+            <p>Веб-разработчик / Frontend & Backend</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="services.html" class="active">Услуги</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="services-header">
+            <h1>Мои услуги</h1>
+            <p>Я предлагаю полный спектр услуг по созданию и поддержке веб-проектов. Каждое решение адаптировано под конкретные задачи клиента.</p>
+        </section>
+
+        <div class="services-grid">
+            <!-- Услуга 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Разработка сайтов</h3>
+                <ul>
+                    <li>Сайты-визитки</li>
+                    <li>Промо-сайты</li>
+                    <li>Адаптивный дизайн</li>
+                    <li>Обучающие сайты</li>
+                </ul>
+                <div class="price">от 25 000 ₽</div>
+                <a href="contact.html" class="btn">Заказать</a>
+            </div>
+
+            <!-- Услуга 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>SEO и Оптимизация</h3>
+                <ul>
+                    <li>SEO-аудит</li>
+                    <li>Техническая оптимизация</li>
+                    <li>Ускорение загрузки</li>
+                    <li>Контент-стратегия</li>
+                    <li>Аналитика и метрики</li>
+                </ul>
+                <div class="price">от 15 000 ₽</div>
+                <a href="contact.html" class="btn">Заказать</a>
+            </div>
+
+
+
+            <!-- Услуга 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Техническая поддержка</h3>
+                <ul>
+                    <li>Обслуживание сайтов</li>
+                    <li>Исправление ошибок</li>
+                    <li>Добавление нового функционала</li>
+                    <li>Резервное копирование</li>
+                    <li>Хостинг и домены</li>
+                </ul>
+                <div class="price">от 10 000 ₽/мес</div>
+                <a href="contact.html" class="btn">Заказать</a>
+            </div>
+        </div>
+
+        <section class="faq-section">
+            <h2>Частые вопросы</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Сколько времени занимает разработка сайта?</div>
+                <p>Сроки зависят от сложности проекта. Простые - 1-2 недели, Корпоративные - 3-6 недель, интернет-магазин - от 6 недель.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Какие технологии вы используете?</div>
+                <p>В работе я использую HTML, CSS и JavaScript.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Предоставляете ли вы гарантии?</div>
+                <p>Да, я предоставляю гарантию 6 месяцев на все работы. В течение этого периода бесплатно исправляю любые технические ошибки.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как происходит процесс оплаты?</div>
+                <p>Пока алгоритм оплаты не разработан, исправляю! .</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Даниил Жарков</h3>
+                <p>Веб-разработчик</p>
+                <div class="social-links">
+                 
+                    <a href="https://github.com/mr-daniil" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://vk.com/mr_zharik" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="https://instagram.com/mr_zharik" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>© 2025 Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
